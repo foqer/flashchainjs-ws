@@ -1,43 +1,43 @@
 import assert from "assert";
 import { Manager } from "../lib";
 
-var defaultUrl = "wss://bitshares.openledger.info/ws";
+var defaultUrl = "wss://flashchain.flashchain.org/ws";
 defaultUrl = "wss://dexnode.net/ws";
 var faultyNodeList = [
-    {url: "wss://bitsqsdqsdhares.openledger.info/ws", location: "Nuremberg, Germany"},
-    {url: "wss://bitazdazdshares.openledger.info/ws", location: "Nuremberg, Germany"},
-    {url: "wss://bitshaazdzares.openledger.info/ws", location: "Nuremberg, Germany"},
+    {url: "wss://bitsqsdqsdhares.flashchain.org/ws", location: "Nuremberg, Germany"},
+    {url: "wss://bitazdazdshares.flashchain.org/ws", location: "Nuremberg, Germany"},
+    {url: "wss://bitshaazdzares.flashchain.org/ws", location: "Nuremberg, Germany"},
     {url: "wss://bit.btzadazdsabc.org/ws", location: "Hong Kong"},
     {url: "ws://127.0.0.1:8091", location: "Hangzhou, China"},
-    {url: "wss://bitshares.openledger.info/ws", location: "Nuremberg, Germany"},
+    {url: "wss://flashchain.flashchain.org/ws", location: "Nuremberg, Germany"},
     {url: "wss://secure.freedomledger.com/ws", location: "Toronto, Canada"},
-    {url: "wss://node.testnet.bitshares.eu", location: "Public Testnet Server (Frankfurt, Germany)"}
+    {url: "wss://node.testnet.flashchain.eu", location: "Public Testnet Server (Frankfurt, Germany)"}
 ];
 
 var noWorkingNodes = [
-    {url: "wss://bitsqsdqsdhares.openledger.info/ws", location: "Nuremberg, Germany"},
-    {url: "wss://bitazdazdshares.openledger.info/ws", location: "Nuremberg, Germany"},
-    {url: "wss://bitshaazdzares.openledger.info/ws", location: "Nuremberg, Germany"},
+    {url: "wss://bitsqsdqsdhares.flashchain.org/ws", location: "Nuremberg, Germany"},
+    {url: "wss://bitazdazdshares.flashchain.org/ws", location: "Nuremberg, Germany"},
+    {url: "wss://bitshaazdzares.flashchain.org/ws", location: "Nuremberg, Germany"},
     {url: "wss://bit.btzadazdsabc.org/ws", location: "Hong Kong"},
     {url: "ws://127.23230.0.1:8091", location: "Hangzhou, China"},
     {url: "wss://bitshasdares.dacplay.org:8089/ws", location:  "Hangzhou, China"},
     {url: "wss://secuasdre.freedomledger.com/ws", location: "Toronto, Canada"},
-    {url: "wss://testnet.bitshares.eu/wqsdsqs", location: "Public Testnet Server (Frankfurt, Germany)"}
+    {url: "wss://testnet.flashchain.eu/wqsdsqs", location: "Public Testnet Server (Frankfurt, Germany)"}
 ];
 
 var goodNodeList = [
-    {url: "wss://bitshares.openledger.info/ws", location: "Nuremberg, Germany"},
-    {url: "wss://bit.btsabc.org/ws", location: "Hong Kong"},
-    {url: "wss://bts.transwiser.com/ws", location: "Hangzhou, China"},
-    {url: "wss://bitshares.dacplay.org:8089/ws", location:  "Hangzhou, China"},
+    {url: "wss://flashchain.flashchain.org/ws", location: "Nuremberg, Germany"},
+    {url: "wss://bit.flcabc.org/ws", location: "Hong Kong"},
+    {url: "wss://flc.transwiser.com/ws", location: "Hangzhou, China"},
+    {url: "wss://flashchain.dacplay.org:8089/ws", location:  "Hangzhou, China"},
     {url: "wss://openledger.hk/ws", location: "Hong Kong"},
     {url: "wss://secure.freedomledger.com/ws", location: "Toronto, Canada"},
-    {url: "wss://node.testnet.bitshares.eu", location: "Public Testnet Server (Frankfurt, Germany)"}
+    {url: "wss://node.testnet.flashchain.eu", location: "Public Testnet Server (Frankfurt, Germany)"}
 ];
 
 /* This node currently throws an API error for the crypto API */
 var failedInitNodes = [
-    {url: "wss://bitshares.crypto.fans/ws", location: "Munich"}
+    {url: "wss://flashchain.crypto.fans/ws", location: "Munich"}
 ];
 
 describe("Connection Manager", function() {
@@ -65,7 +65,7 @@ describe("Connection Manager", function() {
         let man = new Manager({url: "ws://127.0.0.1:8092", urls: faultyNodeList.map(a => a.url)});
         return new Promise( function(resolve, reject) {
             man.connectWithFallback().then(function() {
-                assert.equal(man.url, "wss://bitshares.openledger.info/ws");
+                assert.equal(man.url, "wss://flashchain.flashchain.org/ws");
                 resolve();
             })
             .catch(reject)
@@ -84,7 +84,7 @@ describe("Connection Manager", function() {
     it("Can check connection times for all connections", function() {
         this.timeout(20000);
         let man = new Manager({url: "ws://127.0.0.1:8090", urls: goodNodeList.map(a => a.url).concat([
-            "wss://bit.btsabc.org/ws",
+            "wss://bit.flcabc.org/ws",
             "wss://secure.freedomledger.com/ws"
         ])});
         return new Promise( function(resolve, reject) {

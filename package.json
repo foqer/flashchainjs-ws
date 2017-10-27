@@ -1,7 +1,7 @@
 {
   "name": "flashchainjs-ws",
   "version": "0.1.0",
-  "description": "Pure JavaScript Bitshares/Graphene websocket interface for node.js and browsers.",
+  "description": "Pure JavaScript Flashchain/Graphene websocket interface for node.js and browsers.",
   "browser": {
     "ws": false
   },
@@ -15,14 +15,14 @@
     "build-es": "BABEL_ENV=es babel ./lib -d es",
     "postbuild": "npm run browserify && npm run build-es",
     "prepublish": "npm run build",
-    "browserify": "NODE_ENV=production browserify cjs/src/ApiInstances.js --standalone bitshares_ws -o build/flashchainjs-ws.js -d",
+    "browserify": "NODE_ENV=production browserify cjs/src/ApiInstances.js --standalone flashchain_ws -o build/flashchainjs-ws.js -d",
     "postbrowserify": "NODE_ENV=production uglifyjs --compress --mangle --sequences --drop_console --mangle-props --screw-ie8 --output build/flashchainjs-ws.min.js -- build/flashchainjs-ws.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/foqer/flashchainjs-ws.git"
   },
-  "author": "Sigve Kvalsvik <bitsharesblocks@gmail.com> (https://github.com/svk31)",
+  "author": "Sigve Kvalsvik <flashchainblocks@gmail.com> (https://github.com/svk31)",
   "contributors": [
     "James Calfee <james@jcalfee.info> (https://github.com/jcalfee/)"
   ],

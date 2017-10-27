@@ -26,9 +26,9 @@ describe("Connection", () => {
 
     it("Connect to Openledger", function() {
         return new Promise( function(resolve) {
-            Apis.instance("wss://bitshares.openledger.info/ws", true).init_promise.then(function (result) {
+            Apis.instance("wss://flashchain.flashchain.org/ws", true).init_promise.then(function (result) {
                 coreAsset = result[0].network.core_asset;
-                assert(coreAsset === "BTS");
+                assert(coreAsset === "flc");
                 resolve();
             });
         });
@@ -36,7 +36,7 @@ describe("Connection", () => {
 
     it("Connect to Testnet", function() {
         return new Promise( function(resolve, reject) {
-            Apis.instance("wss://node.testnet.bitshares.eu", true).init_promise.then(function (result) {
+            Apis.instance("wss://node.testnet.flashchain.eu", true).init_promise.then(function (result) {
                 coreAsset = result[0].network.core_asset;
                 assert(coreAsset === "TEST");
                 resolve();
@@ -48,10 +48,10 @@ describe("Connection", () => {
 describe("Connection reset", () => {
     it("Resets between chains", function() {
         return new Promise( function(resolve, reject) {
-            Apis.instance("wss://bitshares.openledger.info/ws", true).init_promise.then(function (result) {
+            Apis.instance("wss://flashchain.flashchain.org/ws", true).init_promise.then(function (result) {
                 coreAsset = result[0].network.core_asset;
-                assert(coreAsset === "BTS");
-                Apis.reset("wss://node.testnet.bitshares.eu", true).then(instance => {
+                assert(coreAsset === "flc");
+                Apis.reset("wss://node.testnet.flashchain.eu", true).then(instance => {
                     instance.init_promise.then(function (result) {
                         coreAsset = result[0].network.core_asset;
                         assert(coreAsset === "TEST");
@@ -68,7 +68,7 @@ describe("Connection reset", () => {
 
 describe("Api", () => {
 
-    let cs = "wss://bitshares.openledger.info/ws";
+    let cs = "wss://flashchain.flashchain.org/ws";
 
 
     // after(function() {
@@ -236,8 +236,8 @@ describe("Api", () => {
 
         it ("Get market data", function() {
             return new Promise( function(resolve, reject) {
-                if (coreAsset !== "BTS") {
-                    reject(new Error("This test will only work when connected to a BTS api"));
+                if (coreAsset !== "flc") {
+                    reject(new Error("This test will only work when connected to a flc api"));
                 }
                 Apis.instance().history_api().exec("get_fill_order_history", ["1.3.121", "1.3.0", 10])
                 .then(function(history) {
