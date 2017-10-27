@@ -39,7 +39,7 @@
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-stage-1": "^6.16.0",
-    "ReconnectingWebSocket": "git+https://github.com/foqer/reconnecting-websocket",
+    "ReconnectingWebSocket": "git+https://github.com/foqer/reconnecting-websocket.git",
     "ws": "^2.2.0"
   },
   "devDependencies": {
@@ -49,5 +49,14 @@
     "browserify": "^13.0.1",
     "mocha": "^2.3.4",
     "uglify-js": "^3.1.1"
-  }
+  },
+  "homepage": "https://github.com/foqer/flashchainjs-ws#readme",
+  "directories": {
+    "example": "examples",
+    "lib": "lib",
+    "test": "test"
+  },
+  "keywords": [
+    "flashchainjs-ws"
+  ]
 }
