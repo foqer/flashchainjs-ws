@@ -1,6 +1,6 @@
 {
-  "name": "bitsharesjs-ws",
-  "version": "1.3.1",
+  "name": "flashchainjs-ws",
+  "version": "0.1.0",
   "description": "Pure JavaScript Bitshares/Graphene websocket interface for node.js and browsers.",
   "browser": {
     "ws": false
@@ -15,12 +15,12 @@
     "build-es": "BABEL_ENV=es babel ./lib -d es",
     "postbuild": "npm run browserify && npm run build-es",
     "prepublish": "npm run build",
-    "browserify": "NODE_ENV=production browserify cjs/src/ApiInstances.js --standalone bitshares_ws -o build/bitsharesjs-ws.js -d",
-    "postbrowserify": "NODE_ENV=production uglifyjs --compress --mangle --sequences --drop_console --mangle-props --screw-ie8 --output build/bitsharesjs-ws.min.js -- build/bitsharesjs-ws.js"
+    "browserify": "NODE_ENV=production browserify cjs/src/ApiInstances.js --standalone bitshares_ws -o build/flashchainjs-ws.js -d",
+    "postbrowserify": "NODE_ENV=production uglifyjs --compress --mangle --sequences --drop_console --mangle-props --screw-ie8 --output build/flashchainjs-ws.min.js -- build/flashchainjs-ws.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bitshares/bitsharesjs-ws.git"
+    "url": "git+https://github.com/foqer/flashchainjs-ws.git"
   },
   "author": "Sigve Kvalsvik <bitsharesblocks@gmail.com> (https://github.com/svk31)",
   "contributors": [
@@ -28,7 +28,7 @@
   ],
   "license": "BSD-2-Clause-FreeBSD",
   "bugs": {
-    "url": "https://github.com/bitshares/bitsharesjs-ws/issues"
+    "url": "https://github.com/foqer/flashchainjs-ws/issues"
   },
   "engines": {
     "node": ">= 6.0.0"
@@ -39,7 +39,7 @@
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-stage-1": "^6.16.0",
-    "ReconnectingWebSocket": "git+https://github.com/bitshares/reconnecting-websocket",
+    "ReconnectingWebSocket": "git+https://github.com/foqer/reconnecting-websocket",
     "ws": "^2.2.0"
   },
   "devDependencies": {

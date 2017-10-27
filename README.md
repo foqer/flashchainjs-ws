@@ -1,18 +1,18 @@
-# Bitshares websocket interface (bitsharesjs-ws)
+# Bitshares websocket interface (flashchainjs-ws)
 
 Pure JavaScript Bitshares websocket library for node.js and browsers. Can be used to easily connect to and obtain data from the Bitshares blockchain via public apis or local nodes.
 
 Credit for the original implementation goes to [jcalfeee](https://github.com/jcalfee).
 
-[![npm version](https://img.shields.io/npm/v/bitsharesjs-ws.svg?style=flat-square)](https://www.npmjs.com/package/bitsharesjs-ws)
-[![npm downloads](https://img.shields.io/npm/dm/bitsharesjs-ws.svg?style=flat-square)](https://www.npmjs.com/package/bitsharesjs-ws)
+[![npm version](https://img.shields.io/npm/v/flashchainjs-ws.svg?style=flat-square)](https://www.npmjs.com/package/flashchainjs-ws)
+[![npm downloads](https://img.shields.io/npm/dm/flashchainjs-ws.svg?style=flat-square)](https://www.npmjs.com/package/flashchainjs-ws)
 
 
 ## Setup
 
 This library can be obtained through npm:
 ```
-npm install bitsharesjs-ws
+npm install flashchainjs-ws
 ```
 
 ## Usage
@@ -22,7 +22,7 @@ Several examples are available in the /examples folder, and the tests in /test a
 Browser bundles are provided in /build/, for testing purposes you can access this from rawgit:
 
 ```
-<script type="text/javascript" src="https://cdn.rawgit.com/bitshares/bitsharesjs-ws/build/bitsharesjs-ws.js" />
+<script type="text/javascript" src="https://cdn.rawgit.com/bitshares/flashchainjs-ws/build/flashchainjs-ws.js" />
 ```
 
 A variable bitshares_ws will be available in window.
@@ -30,7 +30,7 @@ A variable bitshares_ws will be available in window.
 For use in a webpack/browserify context, see the example below for how to open a websocket connection to the Openledger API and subscribe to any object updates:
 
 ```
-var {Apis} = require("bitsharesjs-ws");
+var {Apis} = require("flashchainjs-ws");
 Apis.instance("wss://bitshares.openledger.info/ws", true).init_promise.then((res) => {
     console.log("connected to:", res[0].network);
     Apis.instance().db_api().exec( "set_subscribe_callback", [ updateListener, true ] )
@@ -46,7 +46,7 @@ The `set_subscribe_callback` callback (updateListener) will be called whenever a
 This is a non-exhaustive list of endpoints available from the witness_node executable, which provides the API server of Bitshares.
 
 ## database_api
-https://github.com/bitshares/bitshares-core/blob/master/libraries/app/database_api.cpp
+https://github.com/foqer/bitshares-core/blob/master/libraries/app/database_api.cpp
 
 __Usage examples__
 `Apis.instance().db_api().exec(method, params)`
